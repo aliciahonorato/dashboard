@@ -1,0 +1,4 @@
+﻿Date;Sales;Revenue;Customer_ID;Region;Retention Status;Growth Rate
+01/01/2025;10;1500;12345;North;Yes;5%
+02/01/2025;8;1200;12346;South;No;3%
+03/01/2025;15;2000;12347;East;Yes;8%
