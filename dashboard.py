@@ -8,14 +8,16 @@ st.title("Performance Indicator Dashboard for SMEs")
 # Load Data
 uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
 if uploaded_file:
-    data = pd.read_csv(uploaded_file)
+    # Carregar o arquivo CSV com ponto e vírgula como separador
+    data = pd.read_csv(uploaded_file, delimiter=';')
+    
     st.write("### Loaded Data:")
     st.dataframe(data)
 
     # Ensure necessary columns are present
     required_columns = ["Date", "Sales", "Revenue", "Customer_ID", "Region", "Retention Status"]
     if not all(col in data.columns for col in required_columns):
-        st.error(f"The uploaded file must contain the following columns: {', '.join(required_columns)}")
+        st.error(f"The uploaded file must contain the following columns: {';'.join(required_columns)}")
     else:
         # Convert 'Date' to datetime format
         data["Date"] = pd.to_datetime(data["Date"])
